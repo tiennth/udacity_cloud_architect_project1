@@ -1,0 +1,55 @@
+➜  udacity-cloud-architect ssh ec2-user@52.7.111.186 -i tiennt7.pem
+ssh: connect to host 52.7.111.186 port 22: Operation timed out
+➜  udacity-cloud-architect ssh ec2-user@18.207.213.83 -i tiennt7.pem
+The authenticity of host '18.207.213.83 (18.207.213.83)' can't be established.
+ED25519 key fingerprint is SHA256:G9vcj6JqeCKp+Tcp3QFBBAAtQvAYvcK46JYxqfMmqJo.
+This host key is known by the following other names/addresses:
+    ~/.ssh/known_hosts:48: 52.7.111.186
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added '18.207.213.83' (ED25519) to the list of known hosts.
+   ,     #_
+   ~\_  ####_        Amazon Linux 2023
+  ~~  \_#####\
+  ~~     \###|
+  ~~       \#/ ___   https://aws.amazon.com/linux/amazon-linux-2023
+   ~~       V~' '->
+    ~~~         /
+      ~~._.   _/
+         _/ _/
+       _/m/'
+Last login: Wed Jun 14 17:39:21 2023 from 14.161.21.231
+[ec2-user@ip-10-1-10-178 ~]$ mysql -h udacity-db.ctipcqfdyyz9.us-east-1.rds.amazonaws.com -P 3306 -u admin -p udacity
+Enter password:
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 290
+Server version: 8.0.32 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [udacity]> create table books (id int, name varchar(100))
+    -> ;
+Query OK, 0 rows affected (0.137 sec)
+
+MySQL [udacity]> insert into books values (1, 'Doraemon')
+    -> ;
+Query OK, 1 row affected (0.012 sec)
+
+MySQL [udacity]> insert into books values (2, 'Software Engineering')
+    -> ;
+Query OK, 1 row affected (0.009 sec)
+
+MySQL [udacity]> select * from books;
++------+----------------------+
+| id   | name                 |
++------+----------------------+
+|    1 | Doraemon             |
+|    2 | Software Engineering |
++------+----------------------+
+2 rows in set (0.001 sec)
+
+MySQL [udacity]>
